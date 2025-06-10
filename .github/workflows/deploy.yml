@@ -54,21 +54,21 @@ jobs:
       - name: Generate coverage report
         run: npm run coverage
 
-      # Step 9: Upload coverage report
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-report
-          path: coverage/lcov.info
+      # # Step 9: Upload coverage report
+      # - name: Upload coverage report
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: coverage-report
+      #     path: coverage/lcov.info
 
-      # Step 10: Upload build artifact
-      - name: Upload production build as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifact
-          path: ./dist
+      # # Step 10: Upload build artifact
+      # - name: Upload production build as artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: build-artifact
+      #     path: ./dist
 
-  cd:
+  # cd:
     name: Continuous Deployment
     runs-on: ubuntu-latest
     needs: ci

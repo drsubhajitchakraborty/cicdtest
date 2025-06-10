@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "start": "node index.js",
-  "build": "echo 'No build needed for plain JS project'",
-  "test": "echo 'No tests defined' && exit 0"
+  "start": "node index.js"
 },
 
   "author": "",

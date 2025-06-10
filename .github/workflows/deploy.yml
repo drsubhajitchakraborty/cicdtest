@@ -41,13 +41,13 @@ jobs:
 
   
 
-      # Step 7: Build the project
-      - name: Build the project
-        run: npm run build
+      # # Step 7: Build the project
+      # - name: Build the project
+      #   run: npm run build
 
-      # Step 8: Generate coverage report
-      - name: Generate coverage report
-        run: npm run coverage
+      # # Step 8: Generate coverage report
+      # - name: Generate coverage report
+      #   run: npm run coverage
 
       # # Step 9: Upload coverage report
       # - name: Upload coverage report

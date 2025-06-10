@@ -8,58 +8,26 @@ on:
 
 jobs:
   ci:
-    name: Continuous Integration
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
-      - name: Checkout repository
+      # Step 1: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Setup Node.js
+      # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.16.0'
+          node-version: '18'
 
-      # Step 3: Cache node_modules to speed up builds
-      - name: Cache Node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{  
-                          hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # Step 4: Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-   
-
+      # Step 4: Lint the code (optional - include only if you have a lint script)
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true  # Optional: don’t fail build if lint has issues
 
   
-
-      # # Step 7: Build the project
-      # - name: Build the project
-      #   run: npm run build
-
-      # # Step 8: Generate coverage report
-      # - name: Generate coverage report
-      #   run: npm run coverage
-
-      # # Step 9: Upload coverage report
-      # - name: Upload coverage report
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: coverage-report
-      #     path: coverage/lcov.info
-
-      # # Step 10: Upload build artifact
-      # - name: Upload production build as artifact
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: build-artifact
-      #     path: ./dist
-
